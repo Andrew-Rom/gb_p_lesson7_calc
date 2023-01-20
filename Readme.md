@@ -20,7 +20,7 @@
 <br>_contains the set of functions for checking user's input_
 
 **log -**
-<br>_block for logging
+<br>_block for logging_
 
 **main -**
 <br>_initialisation block_

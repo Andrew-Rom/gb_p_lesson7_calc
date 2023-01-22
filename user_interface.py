@@ -12,11 +12,11 @@ def menu():
             case "2":
                 complex_num()
             case "3":
-                logging.info("stop program")
+                logging.info("Stop program")
                 break
             case _:
-                logging.error("Err")
-                print("Err")
+                logging.error("Error")
+                print("Error. Incorrect input.")
 
 
 def operation():
@@ -46,11 +46,11 @@ def operation():
             case "7":
                 menu()
             case "8":
-                logging.info("stop program")
+                logging.info("Stop program")
                 break
             case _:
-                logging.error("Err")
-                print("Err")
+                logging.error("Error")
+                print("Error. Incorrect input.")
 
 
 def rational_num():

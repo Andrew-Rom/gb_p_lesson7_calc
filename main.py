@@ -1,5 +1,5 @@
-from user_interface import *
+from calc_operations import *
 from log import logging
 
 logging.info('start program')
-menu()
+print(actions())

@@ -74,8 +74,8 @@ def operation_for_complex_number():
 
 def rational_num():
     try:
-        num_1 = float(input("Enter 1 number: "))
-        num_2 = float(input("Enter 2 number: "))
+        num_1 = float(input("Enter 1 number: ").replace(',', '.'))
+        num_2 = float(input("Enter 2 number: ").replace(',', '.'))
     except:
         logging.error("Error")
         print("Error. Incorrect input.")

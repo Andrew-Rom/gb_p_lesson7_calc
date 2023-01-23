@@ -1,41 +1,76 @@
-import logging
+from log import logging
+import calc_operations
 
+def select_num_type():
+    type_num = input("\n"
+                     "*****************************\n"
+                     "* Types of numbers:         *\n"
+                     "*****************************\n"
+                     "* 1 - rational numbers      *\n"
+                     "* 2 - complex numbers       *\n"
+                     "* 0 - EXIT                  *\n"
+                     "*****************************\n"
+                     "Your selection: ")
+    if type_num not in ['1', '2', '0']:
+        logging.error("Error")
+        print("Error. Incorrect input.")
+        select_num_type()
+    else:
+        return type_num
 
-def operation():
-
+def operation_for_rational_numbers():
     while True:
-        type_num = menu()
-        if type_num == '1':
-            operat = input("Choice\n"
-                        "1 - sum\n"
-                        "2 - subtraction\n"
-                        "3 - multiplication\n"
-                        "4 - division\n"
-                        "5 - remainder of the division\n"
-                        "6 - integer division\n"
-                        "7 - pow\n"
-                        "8 - sqrt\n")
+        oper = input("\n"
+                               "*************************************************************\n"
+                               "* Types of operation:                                       *\n"
+                               "*************************************************************\n"
+                               "* 1 - sum                                                   *\n"
+                               "* 2 - subtraction                                           *\n"
+                               "* 3 - multiplication                                        *\n"
+                               "* 4 - division                                              *\n"
+                               "* 5 - exponentiation                                        *\n"
+                               "* 6 - root of first number (second number - degree of root) *\n"
+                               "* 7 - remainder of division                                 *\n"
+                               "* 8 - integer division                                      *\n"
+                               "* 0 - previous menu                                         *\n"
+                               "* 00 - EXIT                                                 *\n"
+                               "*************************************************************\n"
+                               "Your selection: ")
+        if oper not in ['1', '2', '3', '4', '5', '6', '7', '8', '0', '00']:
+            logging.error("Error")
+            print("Error. Incorrect input.")
+            operation_for_rational_numbers()
+        elif oper == '00':
+            logging.info("Stop program")
+            break
+        else:
+            return oper
 
-        elif  type_num == '2':
-            operat = input("Choice\n"
-                        "1 - sum\n"
-                        "2 - subtraction\n"
-                        "3 - multiplication\n"
-                        "4 - division\n"
-                        "7 - pow\n"
-                        "8 - sqrt\n")
-
-
-        return(type_num, operat)
-
-def menu():
+def operation_for_complex_number():
     while True:
-        type_num = input("Choice\n"
-                         "1 - rational\n"
-                         "2 - complex\n"
-                         "3 - exit\n")
-        return type_num            
-
+        oper = input("\n"
+                       "*****************************\n"
+                       "* Types of operation:       *\n"
+                       "*****************************\n"
+                       "* 1 - sum                   *\n"
+                       "* 2 - subtraction           *\n"
+                       "* 3 - multiplication        *\n"
+                       "* 4 - division              *\n"
+                       "* 5 - exponentiation        *\n"
+                       "* 6 - square root           *\n"
+                       "* 0 - previous menu         *\n"
+                       "* 00 - EXIT                 *\n"
+                       "*****************************\n"
+                       "Your selection: ")
+        if oper not in ['1', '2', '3', '4', '5', '6', '0', '00']:
+            logging.error("Error")
+            print("Error. Incorrect input.")
+            operation_for_complex_number()
+        elif oper == '00':
+            logging.info("Stop program")
+            break
+        else:
+            return oper
 
 def rational_num():
     num_1 = float(input("Enter 1 number: "))
@@ -50,3 +85,18 @@ def complex_num():
     num_C_1 = complex(num_1, num_2)
     num_C_2 = complex(num_3, num_4)
     return num_C_1, num_C_2
+
+def get_values():
+    while True:
+        type_n = select_num_type()
+        if type_n == '1':
+            n1, n2 = rational_num()
+            op = operation_for_rational_numbers()
+            return n1, n2, op
+        elif type_n == '2':
+            n1, n2 = complex_num()
+            op = operation_for_complex_number()
+            return n1, n2, op
+        elif type_n == '0':
+            logging.info("Stop program")
+            return False

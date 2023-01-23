@@ -42,7 +42,7 @@ def operation_for_rational_numbers():
             operation_for_rational_numbers()
         elif oper == '00':
             logging.info("Stop program")
-            break
+            exit()
         else:
             return oper
 
@@ -68,7 +68,7 @@ def operation_for_complex_number():
             operation_for_complex_number()
         elif oper == '00':
             logging.info("Stop program")
-            break
+            exit()
         else:
             return oper
 
@@ -99,4 +99,4 @@ def get_values():
             return n1, n2, op
         elif type_n == '0':
             logging.info("Stop program")
-            return False
+            exit()

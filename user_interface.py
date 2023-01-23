@@ -73,17 +73,27 @@ def operation_for_complex_number():
             return oper
 
 def rational_num():
-    num_1 = float(input("Enter 1 number: "))
-    num_2 = float(input("Enter 2 number: "))
+    try:
+        num_1 = float(input("Enter 1 number: "))
+        num_2 = float(input("Enter 2 number: "))
+    except:
+        logging.error("Error")
+        print("Error. Incorrect input.")
+        rational_num()
     return num_1, num_2
 
 def complex_num():
-    num_1 = int(input("Enter 1 real part: "))
-    num_2 = int(input("Enter 1 imaginary number: "))
-    num_3 = int(input("Enter 2 real part: "))
-    num_4 = int(input("Enter 2 imaginary number: "))
-    num_C_1 = complex(num_1, num_2)
-    num_C_2 = complex(num_3, num_4)
+    try:
+        num_1 = int(input("Enter 1 real part: "))
+        num_2 = int(input("Enter 1 imaginary number: "))
+        num_3 = int(input("Enter 2 real part: "))
+        num_4 = int(input("Enter 2 imaginary number: "))
+        num_C_1 = complex(num_1, num_2)
+        num_C_2 = complex(num_3, num_4)
+    except:
+        logging.error("Error")
+        print("Error. Incorrect input.")
+        complex_num()
     return num_C_1, num_C_2
 
 def get_values():

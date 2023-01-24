@@ -12,18 +12,11 @@
 - результат вычислений.
 
 ---
-### Block - creator
-**calc_operations -**
-<br>_contains the set of functions for execute the operation of calculating_
+### Blocks
+**calc_operations** - contains the set of functions for execute the operation of calculating
 
-**check -**
-<br>_contains the set of functions for checking user's input_
+**log** - block for logging
 
-**log -**
-<br>_block for logging_
+**main** - initialisation block
 
-**main -**
-<br>_initialisation block_
-
-**user_interface -**
-<br>_UI block_ 
+**user_interface** - UI block

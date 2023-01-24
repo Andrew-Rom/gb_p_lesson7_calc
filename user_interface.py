@@ -94,7 +94,7 @@ def rational_num():
         return op, num_1, num_2
 
 def complex_num():
-    op = operation_for_rational_numbers()
+    op = operation_for_complex_number()
     if op == '5' or op == '6':
         try:
             num_1 = int(input("Enter 1 real part: "))

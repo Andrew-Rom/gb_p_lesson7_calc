@@ -29,6 +29,10 @@ def actions():
             log.logging.error("Error")
             print("Error. Invalid argument.")
             actions()
+        elif num_2 % 2 == 0 and num_1 < 0:
+            log.logging.error("Error")
+            print("Error. Invalid argument.")
+            actions()
         else:
             log.logging.info(f'{num_1} root {num_2} = {num_1 ** (1/num_2)}')
             return num_1 ** (1/num_2)

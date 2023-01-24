@@ -52,5 +52,4 @@ def actions():
         else:
             log.logging.info(f'{num_1} // {num_2} = {num_1 // num_2}')
             return num_1 // num_2
-    elif act_operation == '0':
-        actions()
+

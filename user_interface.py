@@ -82,7 +82,9 @@ def rational_num():
             log.logging.error("Error")
             print("Error. Incorrect input.")
             rational_num()
-        return op, num_1, num_2 
+        return op, num_1, num_2
+    elif op == '0':
+        calc_operations.actions()
     else:
         try:
             num_1 = float(input("Enter 1 number: ").replace(',', '.'))
@@ -106,6 +108,8 @@ def complex_num():
             print("Error. Incorrect input.")
             complex_num()
         return op, num_C_1, num_3
+    elif op == '0':
+        calc_operations.actions()
     else:    
         try:
             num_1 = int(input("Enter 1 real part: "))
@@ -119,8 +123,6 @@ def complex_num():
             print("Error. Incorrect input.")
             complex_num()
         return op, num_C_1, num_C_2
-
-
 
 def get_values():
     while True:

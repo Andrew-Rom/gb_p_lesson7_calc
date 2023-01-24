@@ -36,6 +36,14 @@ def actions():
         else:
             log.logging.info(f'{num_1} root {num_2} = {num_1 ** (1/num_2)}')
             return num_1 ** (1/num_2)
+    elif act_operation == '60':
+        if num_2 == 0:
+            log.logging.error("Error")
+            print("Error. Invalid argument.")
+            actions()
+        else:
+            log.logging.info(f'{num_1} root {num_2} = {num_1 ** (1/num_2)}')
+            return num_1 ** (1/num_2)
     elif act_operation == '7':
         if num_2 == 0:
             log.logging.error("Error")

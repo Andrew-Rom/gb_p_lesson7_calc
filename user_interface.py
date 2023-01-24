@@ -49,18 +49,18 @@ def operation_for_rational_numbers():
 def operation_for_complex_number():
     while True:
         oper = input("\n"
-                       "*****************************\n"
-                       "* Types of operation:       *\n"
-                       "*****************************\n"
-                       "* 1 - sum                   *\n"
-                       "* 2 - subtraction           *\n"
-                       "* 3 - multiplication        *\n"
-                       "* 4 - division              *\n"
-                       "* 5 - exponentiation        *\n"
-                       "* 6 - square root           *\n"
-                       "* 0 - previous menu         *\n"
-                       "* 00 - EXIT                 *\n"
-                       "*****************************\n"
+                       "*************************************************************\n"
+                       "* Types of operation:                                       *\n"
+                       "*************************************************************\n"
+                       "* 1 - sum                                                   *\n"
+                       "* 2 - subtraction                                           *\n"
+                       "* 3 - multiplication                                        *\n"
+                       "* 4 - division                                              *\n"
+                       "* 5 - exponentiation                                        *\n"
+                       "* 6 - root of first number (second number - degree of root) *\n"
+                       "* 0 - previous menu                                         *\n"
+                       "* 00 - EXIT                                                 *\n"
+                       "*************************************************************\n"
                        "Your selection: ")
         if oper not in ['1', '2', '3', '4', '5', '6', '0', '00']:
             log.logging.error("Error")

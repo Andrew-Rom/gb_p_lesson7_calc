@@ -97,7 +97,19 @@ def rational_num():
 
 def complex_num():
     op = operation_for_complex_number()
-    if op == '5' or op == '6':
+    if op == '6':
+        op = '60'
+        try:
+            num_1 = int(input("Enter 1 real part: "))
+            num_2 = int(input("Enter 1 imaginary number: "))
+            num_3 = int(input("Enter number: "))
+            num_C_1 = complex(num_1, num_2)
+        except:
+            log.logging.error("Error")
+            print("Error. Incorrect input.")
+            complex_num()
+        return op, num_C_1, num_3
+    elif op == '5':
         try:
             num_1 = int(input("Enter 1 real part: "))
             num_2 = int(input("Enter 1 imaginary number: "))

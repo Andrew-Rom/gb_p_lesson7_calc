@@ -1,5 +1,6 @@
 from calc_operations import *
-from log import logging
+import log
 
-logging.info('start program')
+log.logging.info('start program')
 print(actions())
+log.logging.info('finish program')

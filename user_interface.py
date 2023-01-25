@@ -95,43 +95,22 @@ def operation_for_complex_number():
 
 def rational_num(op):
     while True:
-        if op == '5' or op == '6':
-            try:
-                num_1 = float(input("Enter 1 number: ").replace(',', '.'))
-                num_2 = int(input("Enter 2 number: ").replace(',', '.'))
-                return num_1, num_2
-            except:
-                log.logging.error("Error")
-                print("Error. Incorrect input.")
-                return
-        else:
-            try:
-                num_1 = float(input("Enter 1 number: ").replace(',', '.'))
-                num_2 = float(input("Enter 2 number: ").replace(',', '.'))
-                return num_1, num_2
-            except:
-                log.logging.error("Error")
-                print("Error. Incorrect input.")
-                return
+        try:
+            num_1 = float(input("Enter 1 number: ").replace(',', '.'))
+            num_2 = float(input("Enter 2 number: ").replace(',', '.'))
+            return num_1, num_2
+        except:
+            log.logging.error("Error")
+            print("Error. Incorrect input.")
+            return
 
 def complex_num(op):
     while True:
-        if op == '60':
+        if op == '60' or op == '5':
             try:
                 num_1 = int(input("Enter 1 real part: "))
                 num_2 = int(input("Enter 1 imaginary number: "))
-                num_3 = int(input("Enter number: "))
-                num_C_1 = complex(num_1, num_2)
-                return num_C_1, num_3
-            except:
-                log.logging.error("Error")
-                print("Error. Incorrect input.")
-                return
-        elif op == '5':
-            try:
-                num_1 = int(input("Enter 1 real part: "))
-                num_2 = int(input("Enter 1 imaginary number: "))
-                num_3 = int(input("Enter number: "))
+                num_3 = float(input("Enter 2 number: ").replace(',', '.'))
                 num_C_1 = complex(num_1, num_2)
                 return num_C_1, num_3
             except:

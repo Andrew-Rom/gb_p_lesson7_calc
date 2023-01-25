@@ -2,21 +2,29 @@ import log
 import calc_operations
 
 def select_num_type():
-    type_num = input("\n"
-                     "*****************************\n"
-                     "* Types of numbers:         *\n"
-                     "*****************************\n"
-                     "* 1 - rational numbers      *\n"
-                     "* 2 - complex numbers       *\n"
-                     "* 0 - EXIT                  *\n"
-                     "*****************************\n"
-                     "Your selection: ")
-    if type_num not in ['1', '2', '0']:
-        log.logging.error("Error")
-        print("Error. Incorrect input.")
-        select_num_type()
-    else:
-        return type_num
+    while True:
+        type_num = input("\n"
+                         "*****************************\n"
+                         "* Types of numbers:         *\n"
+                         "*****************************\n"
+                         "* 1 - rational numbers      *\n"
+                         "* 2 - complex numbers       *\n"
+                         "* 0 - EXIT                  *\n"
+                         "*****************************\n"
+                         "Your selection: ")
+        if type_num == '0':
+            log.logging.info("Stop program")
+            exit()
+        elif type_num == '1':
+            operation_for_rational_numbers()
+        elif type_num == '2':
+            operation_for_complex_number()
+        elif type_num not in ['1', '2', '0']:
+            log.logging.error("Error")
+            print("Error. Incorrect input.")
+            continue
+        else:
+            break
 
 def operation_for_rational_numbers():
     while True:
@@ -39,12 +47,18 @@ def operation_for_rational_numbers():
         if oper not in ['1', '2', '3', '4', '5', '6', '7', '8', '0', '00']:
             log.logging.error("Error")
             print("Error. Incorrect input.")
-            operation_for_rational_numbers()
+            continue
         elif oper == '00':
             log.logging.info("Stop program")
             exit()
+        elif oper == '0':
+            log.logging.info('go to previous menu')
+            break
         else:
-            return oper
+            n1, n2 = rational_num(oper)
+            calc_operations.actions(oper, n1, n2)
+            log.logging.info('finish program')
+            exit()
 
 def operation_for_complex_number():
     while True:
@@ -65,86 +79,75 @@ def operation_for_complex_number():
         if oper not in ['1', '2', '3', '4', '5', '6', '0', '00']:
             log.logging.error("Error")
             print("Error. Incorrect input.")
-            operation_for_complex_number()
+            continue
         elif oper == '00':
             log.logging.info("Stop program")
             exit()
+        elif oper == '0':
+            log.logging.info('go to previous menu')
+            break
         else:
-            return oper
-
-def rational_num():
-    op = operation_for_rational_numbers()
-    if op == '5' or op == '6':
-        try:
-            num_1 = float(input("Enter 1 number: ").replace(',', '.'))
-            num_2 = int(input("Enter 2 number: ").replace(',', '.'))
-        except:
-            log.logging.error("Error")
-            print("Error. Incorrect input.")
-            rational_num()
-        return op, num_1, num_2
-    elif op == '0':
-        calc_operations.actions()
-    else:
-        try:
-            num_1 = float(input("Enter 1 number: ").replace(',', '.'))
-            num_2 = float(input("Enter 2 number: ").replace(',', '.'))
-        except:
-            log.logging.error("Error")
-            print("Error. Incorrect input.")
-            rational_num()
-        return op, num_1, num_2
-
-def complex_num():
-    op = operation_for_complex_number()
-    if op == '6':
-        op = '60'
-        try:
-            num_1 = int(input("Enter 1 real part: "))
-            num_2 = int(input("Enter 1 imaginary number: "))
-            num_3 = int(input("Enter number: "))
-            num_C_1 = complex(num_1, num_2)
-        except:
-            log.logging.error("Error")
-            print("Error. Incorrect input.")
-            complex_num()
-        return op, num_C_1, num_3
-    elif op == '5':
-        try:
-            num_1 = int(input("Enter 1 real part: "))
-            num_2 = int(input("Enter 1 imaginary number: "))
-            num_3 = int(input("Enter number: "))
-            num_C_1 = complex(num_1, num_2)
-        except:
-            log.logging.error("Error")
-            print("Error. Incorrect input.")
-            complex_num()
-        return op, num_C_1, num_3
-    elif op == '0':
-        calc_operations.actions()
-    else:    
-        try:
-            num_1 = int(input("Enter 1 real part: "))
-            num_2 = int(input("Enter 1 imaginary number: "))
-            num_3 = int(input("Enter 2 real part: "))
-            num_4 = int(input("Enter 2 imaginary number: "))
-            num_C_1 = complex(num_1, num_2)
-            num_C_2 = complex(num_3, num_4)
-        except:
-            log.logging.error("Error")
-            print("Error. Incorrect input.")
-            complex_num()
-        return op, num_C_1, num_C_2
-
-def get_values():
-    while True:
-        type_n = select_num_type()
-        if type_n == '1':
-            op, n1, n2 = rational_num()
-            return op, n1, n2
-        elif type_n == '2':
-            op, n1, n2 = complex_num()
-            return op, n1, n2
-        elif type_n == '0':
-            log.logging.info("Stop program")
+            n1, n2 = complex_num(oper)
+            calc_operations.actions(oper, n1, n2)
+            log.logging.info('finish program')
             exit()
+
+def rational_num(op):
+    while True:
+        if op == '5' or op == '6':
+            try:
+                num_1 = float(input("Enter 1 number: ").replace(',', '.'))
+                num_2 = int(input("Enter 2 number: ").replace(',', '.'))
+                return num_1, num_2
+            except:
+                log.logging.error("Error")
+                print("Error. Incorrect input.")
+                return
+        else:
+            try:
+                num_1 = float(input("Enter 1 number: ").replace(',', '.'))
+                num_2 = float(input("Enter 2 number: ").replace(',', '.'))
+                return num_1, num_2
+            except:
+                log.logging.error("Error")
+                print("Error. Incorrect input.")
+                return
+
+def complex_num(op):
+    while True:
+        if op == '6':
+            op = '60'
+            try:
+                num_1 = int(input("Enter 1 real part: "))
+                num_2 = int(input("Enter 1 imaginary number: "))
+                num_3 = int(input("Enter number: "))
+                num_C_1 = complex(num_1, num_2)
+                return num_C_1, num_3
+            except:
+                log.logging.error("Error")
+                print("Error. Incorrect input.")
+                return
+        elif op == '5':
+            try:
+                num_1 = int(input("Enter 1 real part: "))
+                num_2 = int(input("Enter 1 imaginary number: "))
+                num_3 = int(input("Enter number: "))
+                num_C_1 = complex(num_1, num_2)
+                return num_C_1, num_3
+            except:
+                log.logging.error("Error")
+                print("Error. Incorrect input.")
+                return
+        else:
+            try:
+                num_1 = int(input("Enter 1 real part: "))
+                num_2 = int(input("Enter 1 imaginary number: "))
+                num_3 = int(input("Enter 2 real part: "))
+                num_4 = int(input("Enter 2 imaginary number: "))
+                num_C_1 = complex(num_1, num_2)
+                num_C_2 = complex(num_3, num_4)
+                return num_C_1, num_C_2
+            except:
+                log.logging.error("Error")
+                print("Error. Incorrect input.")
+                return

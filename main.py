@@ -1,8 +1,8 @@
-from calc_operations import *
+from user_interface import *
 import log
 import os
 os.system('cls')
 
 log.logging.info('start program')
-print(actions())
+print(select_num_type())
 log.logging.info('finish program')

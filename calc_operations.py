@@ -2,8 +2,7 @@ import user_interface as mod
 import log
 
 
-def actions():
-    act_operation, num_1, num_2 = mod.get_values()
+def actions(act_operation, num_1, num_2):
     if act_operation == '1':
         log.logging.info(f'{num_1} + {num_2} = {num_1 + num_2}')
         print(f'{num_1} + {num_2} = {num_1 + num_2}')

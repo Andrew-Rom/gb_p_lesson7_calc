@@ -87,6 +87,7 @@ def operation_for_complex_number():
             log.logging.info('go to previous menu')
             break
         else:
+            if oper == '6': oper = '60'
             n1, n2 = complex_num(oper)
             calc_operations.actions(oper, n1, n2)
             log.logging.info('finish program')
@@ -115,8 +116,7 @@ def rational_num(op):
 
 def complex_num(op):
     while True:
-        if op == '6':
-            op = '60'
+        if op == '60':
             try:
                 num_1 = int(input("Enter 1 real part: "))
                 num_2 = int(input("Enter 1 imaginary number: "))

@@ -18,7 +18,7 @@ def select_num_type():
         elif type_num == '1':
             operation_for_rational_numbers()
         elif type_num == '2':
-            type_oper = operation_for_complex_number()
+            operation_for_complex_number()
         elif type_num not in ['1', '2', '0']:
             log.logging.error("Error")
             print("Error. Incorrect input.")
@@ -52,10 +52,12 @@ def operation_for_rational_numbers():
             log.logging.info("Stop program")
             exit()
         elif oper == '0':
+            log.logging.info('go to previous menu')
             break
         else:
             n1, n2 = rational_num(oper)
             calc_operations.actions(oper, n1, n2)
+            log.logging.info('finish program')
             exit()
 
 def operation_for_complex_number():
@@ -82,10 +84,12 @@ def operation_for_complex_number():
             log.logging.info("Stop program")
             exit()
         elif oper == '0':
+            log.logging.info('go to previous menu')
             break
         else:
             n1, n2 = complex_num(oper)
             calc_operations.actions(oper, n1, n2)
+            log.logging.info('finish program')
             exit()
 
 def rational_num(op):
